@@ -22,17 +22,17 @@ const GroupItem = (props) => {
     <GridItem sm={4} xs={12} onClick={handleClick} isClickable={true}>
       <Card name={item.name} subheader={`Since ${item.date}`} img={item.img}>
         <GridContainer>
-          <GridItem sm={4} align="center">
+          <GridItem xs={4} align="center">
             <PeopleIcon />
             <Typography gutterBottom variant="caption">
               {item.members}
             </Typography>
           </GridItem>
-          <GridItem sm={4} align="center">
+          <GridItem xs={4} align="center">
             <PhotoIcon />
             {item.pictures}
           </GridItem>
-          <GridItem sm={4} align="center">
+          <GridItem xs={4} align="center">
             <ChatIcon />
             {item.comments}
           </GridItem>
