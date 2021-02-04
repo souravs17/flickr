@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+// import
+// external library
+import { Route, Switch } from "react-router-dom";
+// components
+import Header from "./header";
+import Groups from "./groups";
+import Gallery from "./gallery";
+import PageNotFound from "./page-not-found";
+import { LoaderWithState } from "./shared/components/loader";
+// constants
+import { ROUTES } from "./constants/routes";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <LoaderWithState />
+      <Switch>
+        <Route
+          path={[ROUTES.HOME.URL, ROUTES.GROUPS.URL]}
+          exact
+          component={Groups}
+        />
+        {/* <Route path="/groups" exact component={Groups} /> */}
+        <Route path={ROUTES.GALLERY.URL} exact component={Gallery} />
+        <Route exact component={PageNotFound} />
+      </Switch>
+    </>
   );
-}
+};
 
 export default App;
